@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find DragonTraderZ's Chart</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black; /* Black background */
+        }
+        .background-image {
+            background-image: url('https://pbs.twimg.com/profile_banners/1519429040561664002/1719369905/600x200');
+            background-size: 120%; /* Adjust this value to zoom out the image */
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        input {
+            width: 300px;
+        }
+	button {
+            background-color: #575757;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="container">
+            <h1>Search DragonTraderZ's X For Chart</h1>
+            <input type="text" id="searchTerm" placeholder="Enter Ticker" onkeydown="checkEnter(event)">
+            <button onclick="generateUrl()">Find Chart</button>
+        </div>
+    </div>
+
+    <script>
+        function createSearchUrl(searchTerm) {
+            const baseUrl = "https://x.com/search?q=(from%3ADragontraderz)%20";
+            const endUrl = "&src=typed_query&f=top&pf=on";
+            return `${baseUrl}${searchTerm}${endUrl}`;
+        }
+
+        function generateUrl() {
+            const searchTerm = document.getElementById('searchTerm').value;
+            const searchUrl = createSearchUrl(searchTerm);
+            window.location.href = searchUrl;
+        }
+
+        function checkEnter(event) {
+            if (event.key === 'Enter') {
+                generateUrl();
+            }
+        }
+    </script>
+</body>
+</html>
