@@ -63,7 +63,7 @@
         function generateUrl() {
             const searchTerm = document.getElementById('searchTerm').value;
             const searchUrl = createSearchUrl(searchTerm);
-            window.location.href = searchUrl;
+             window.open(searchUrl, '_blank'); // Open URL in new tab
         }
 
         function checkEnter(event) {
