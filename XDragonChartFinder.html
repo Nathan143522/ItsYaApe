@@ -14,20 +14,12 @@
             font-family: Arial, sans-serif;
             background-color: black; /* Black background */
         }
-        header {
-            background-color: black;
-            color: #7aa77d;
-            padding: 10px 0;
-            text-align: center;
-            font-size: 24px;
-            font-weight: bold;
-        }
         .background-image {
             background-image: url('https://pbs.twimg.com/profile_banners/1519429040561664002/1719369905/600x200');
             background-size: 120%; /* Adjust this value to zoom out the image */
             background-position: center;
             background-repeat: no-repeat;
-            height: calc(100% - 70px); /* Adjust height to account for header */
+            height: calc(100% - 100px); /* Adjust height to account for footer */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -53,26 +45,16 @@
             background-color: #415942;
             color: white;
         }
-        .follow-link {
+        .follow-container {
             position: fixed;
-            bottom: 15px;
-            left: 15%;
-            background-color: #000000; /* X (formerly Twitter) blue color */
-            color: white;
-            padding: 10px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
+            bottom: 40px;
+            width: 100%;
             display: flex;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.3s;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
-        .follow-link-1 {
-            position: fixed;
-            bottom: 15px;
-            right: 15%;
+        .follow-link, .follow-link-1 {
             background-color: #000000; /* X (formerly Twitter) blue color */
             color: white;
             padding: 10px 30px;
@@ -94,25 +76,31 @@
             width: 24px;
             height: 24px;
         }
-
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
         @media (max-width: 768px) {
-            .follow-link, .follow-link-1 {
-                left: 5%;
-                right: 5%;
-                bottom: 10px;
-                width: calc(100% - 10%);
-                justify-content: center;
+            .follow-container {
+                flex-direction: column;
+                align-items: center;
             }
-            .follow-link {
-                bottom: 60px; /* Adjust to stack links on top of each other */
+        }
+        
+        @media (max-width: 560px) {
+            .background-image {
+                background-size: 650px; /* Stop shrinking background image */
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        DragonTraderZ X Chart Finder
-    </header>
     <div class="background-image">
         <div class="container">
             <h1>Search DragonTraderZ's X</h1>
@@ -121,17 +109,23 @@
         </div>
     </div>
 
-    <a href="https://x.com/Dragontraderz" target="_blank" class="follow-link">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/X_logo.jpg/600px-X_logo.jpg" alt="X Logo">Follow @Dragontraderz
-    </a>
-    <a href="https://x.com/NathanDev4" target="_blank" class="follow-link-1">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/X_logo.jpg/600px-X_logo.jpg" alt="X Logo">Follow @NathanDev4
-    </a>
+    <div class="follow-container">
+        <a href="https://x.com/Dragontraderz" target="_blank" class="follow-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/X_logo.jpg/600px-X_logo.jpg" alt="X Logo">Follow @Dragontraderz
+        </a>
+        <a href="https://x.com/NathanDev4" target="_blank" class="follow-link-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/X_logo.jpg/600px-X_logo.jpg" alt="X Logo">Follow @NathanDev4
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2024 NathanDev4. All rights reserved. Version 2024.7.14.1
+    </footer>
 
     <script>
         function createSearchUrl(searchTerm) {
             const baseUrl = "https://x.com/search?q=(from%3ADragontraderz)%20";
-            const endUrl = "&src=typed_query&f=top&pf=on";
+            const endUrl = "&src=typed_query&f=live&pf=on";
             return `${baseUrl}${searchTerm}${endUrl}`;
         }
 
