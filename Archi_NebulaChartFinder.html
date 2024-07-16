@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T1NR7CBR97"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T1NR7CBR97');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Archi_Nebula's Chart</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <style>
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: black; /* Black background */
+        }
+        .background-image {
+            background-image: url('https://pbs.twimg.com/profile_banners/1750739980274585600/1706244222/600x200');
+            background-size: 120%; /* Adjust this value to zoom out the image */
+            background-position: center;
+            background-repeat: no-repeat;
+            height: calc(100% - 100px); /* Adjust height to account for footer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        button {
+            background-color: #c7c459;
+            color: white;
+        }
+        .follow-container {
+            position: fixed;
+            bottom: 40px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .follow-link, .follow-link-1 {
+            background-color: #000000; /* X (formerly Twitter) blue color */
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .follow-link:hover, .follow-link-1:hover {
+            background-color: #3d3d3d; /* Slightly darker blue on hover */
+            transform: translateY(-2px);
+        }
+        .follow-link img, .follow-link-1 img {
+            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+        }
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 14px;
+        }
+        @media (max-width: 768px) {
+            .follow-container {
+                flex-direction: column;
+                align-items: center;
+                bottom: 125px;
+            }
+        }
+        
+        @media (max-width: 560px) {
+            .background-image {
+                background-size: 650px; /* Stop shrinking background image */
+            }
+        }
+        @media (max-width: 280px){
+            html, h1{
+                zoom: 75%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="container">
+            <h1>Search Archi_Nebula's X</h1>
+            <input type="text" id="searchTerm" placeholder="Enter Ticker" onkeydown="checkEnter(event)">
+            <button onclick="generateUrl()">Find Chart</button>
+        </div>
+    </div>
+
+    <div class="follow-container">
+        <a href="https://x.com/ARCHI_NEBULA" target="_blank" class="follow-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/X_logo.jpg/600px-X_logo.jpg" alt="X Logo">Follow @ARCHI_NEBULA
+        </a>
+        <a href="https://x.com/NathanDev4" target="_blank" class="follow-link-1">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/X_logo.jpg/600px-X_logo.jpg" alt="X Logo">Follow @NathanDev4
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2024 NathanDev4. All rights reserved. Version 2024.7.16.1
+    </footer>
+
+    <script>
+        function createSearchUrl(searchTerm) {
+            const baseUrl = "https://x.com/search?q=(from%3AARCHI_NEBULA)%20";
+            const endUrl = "&src=typed_query&f=live&pf=on";
+            return `${baseUrl}${searchTerm}${endUrl}`;
+        }
+
+        function generateUrl() {
+            const searchTerm = document.getElementById('searchTerm').value;
+            const searchUrl = createSearchUrl(searchTerm);
+            window.open(searchUrl, '_blank'); // Open URL in new tab
+        }
+
+        function checkEnter(event) {
+            if (event.key === 'Enter') {
+                generateUrl();
+            }
+        }
+    </script>
+</body>
+</html>
