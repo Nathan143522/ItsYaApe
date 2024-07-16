@@ -18,15 +18,17 @@
     <style>
         body, html {
             height: 100%;
+            margin: 0;
             font-family: Arial, sans-serif;
             background-color: black; /* Black background */
+            overflow: hidden; /* Prevent scroll bars */
         }
         .background-image {
             background-image: url('https://pbs.twimg.com/profile_banners/1750739980274585600/1706244222/600x200');
             background-size: 120%; /* Adjust this value to zoom out the image */
             background-position: center;
             background-repeat: no-repeat;
-            height: calc(100% - 100px); /* Adjust height to account for footer */
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -49,8 +51,35 @@
             background-color: #c7c459;
             color: white;
         }
+        .link-container {
+            position: absolute;
+            bottom: 100px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .external-link {
+            background-color: #c7c459; /* Background color for the new link */
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0; /* Space around the new link */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .external-link:hover {
+            background-color: #a69e46; /* Slightly darker color on hover */
+            transform: translateY(-2px);
+        }
         .follow-container {
-            position: fixed;
+            position: absolute;
             bottom: 40px;
             width: 100%;
             display: flex;
@@ -85,16 +114,21 @@
             color: white;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
+            position: absolute;
             bottom: 0;
             width: 100%;
             font-size: 14px;
         }
         @media (max-width: 768px) {
+            .link-container {
+                flex-direction: column;
+                align-items: center;
+                bottom: 160px;
+            }
             .follow-container {
                 flex-direction: column;
                 align-items: center;
-                bottom: 125px;
+                bottom: 60px;
             }
         }
         
@@ -117,6 +151,12 @@
             <input type="text" id="searchTerm" placeholder="Enter Ticker" onkeydown="checkEnter(event)">
             <button onclick="generateUrl()">Find Chart</button>
         </div>
+    </div>
+
+    <div class="link-container">
+        <a href="https://nathan143522.github.io/ItsYaApe/XDragonChartFinder.html" target="_blank" class="external-link">
+         DragonTraderZ Chart Finder
+        </a>
     </div>
 
     <div class="follow-container">
